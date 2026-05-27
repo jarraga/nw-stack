@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:17
+    container_name: nw-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  backend:
+    build:
+      context: https://github.com/jarraga/nw-back.git#main
+    container_name: nw-back
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PORT: 8080
+      PGHOST: db
+      PGPORT: 5432
+      PGUSER: ${POSTGRES_USER}
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      PGDATABASE: ${POSTGRES_DB}
+      PGSSLMODE: disable
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: https://github.com/jarraga/nw-front.git#main
+      args:
+        VITE_API_URL: ${VITE_API_URL}
+    container_name: nw-front
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  postgres_data:
