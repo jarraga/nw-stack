@@ -18,12 +18,18 @@ Stack completo para levantar la demo de Northwind usando repositorios separados 
    docker compose up --build
    ```
 
+   En PowerShell, si Docker Compose falla evaluando los contextos Git remotos como rutas locales, usar:
+
+   ```powershell
+   $env:DOCKER_BUILDKIT='0'; docker compose up --build
+   ```
+
 ## URLs
 
 - Frontend: http://localhost:3000
 - Backend: http://localhost:8080
 
-## Comandos útiles
+## Comandos utiles
 
 ```sh
 docker compose down
@@ -38,4 +44,4 @@ docker compose logs -f db
 - El backend se construye desde `https://github.com/jarraga/nw-back.git#main`.
 - El frontend se construye desde `https://github.com/jarraga/nw-front.git#main`.
 - No se incluyen secretos reales. Usar `.env` para valores locales.
-- No se incluye código de backend ni frontend en este repositorio.
+- No se incluye codigo de backend ni frontend en este repositorio.
