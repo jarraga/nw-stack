@@ -18,7 +18,7 @@ Ingresando directamente a `/demo`, se pueden reiniciar los datos de las tablas, 
 
 ![demo](imgs/demo.png)
 
-#### Dashboard de cobranzas
+#### Dashboard de cobranzas (Home)
 
 - Métrica de clientes totales.
 - Distribución de clientes por tipo: Empresa, PyME y Startup.
