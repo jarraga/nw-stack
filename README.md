@@ -12,16 +12,22 @@ Stack completo para levantar la demo de Northwind usando repositorios separados 
 
 2. Editar las variables en `.env` si hace falta.
 
-3. Levantar el stack:
+3. Levantar el stack en Windows:
+
+   ```powershell
+   .\start.ps1
+   ```
+
+   Si Windows bloquea la ejecucion de scripts, usar:
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File .\start.ps1
+   ```
+
+   En Linux/macOS, usar:
 
    ```sh
    docker compose up --build
-   ```
-
-   En PowerShell, si Docker Compose falla evaluando los contextos Git remotos como rutas locales, usar:
-
-   ```powershell
-   $env:DOCKER_BUILDKIT='0'; docker compose up --build
    ```
 
 ## URLs
