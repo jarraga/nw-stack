@@ -28,3 +28,5 @@ Este repositorio representa el ejercicio desarrollado para la prueba tecnica def
   - Backend: https://nw-back.onrender.com
 - Api
   - Se puede importar en postman el archivo [openapi.yaml](https://github.com/jarraga/nw-back/blob/main/docs/openapi.yaml) del repo del back para interactuar con la api
+- Diagrama DB:
+  - [Diagrama](/imgs/diagram.png)
