@@ -9,6 +9,8 @@ Este repositorio representa el ejercicio desarrollado para la prueba tecnica def
 
 ⚠️ El backend esta desplegado como servicio serverless en Render.com, por lo que puede tardar unos segundos en levantar si esta inactivo.
 
+> 📹 Video demostrativo: https://youtu.be/M3pabNrZynw
+
 ## Documentacion
 
 - Como operar la app: [APP.md](APP.md)
